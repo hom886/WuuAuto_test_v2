@@ -51,7 +51,7 @@ def search_name(request):
 def guest_manage(request):
     username = request.session.get('user', '')
     guest_list = Guest.objects.all()         # 获取Guest全部数据对象
-    paginator = Paginator(guest_list, 10)     # 把查询出来的所有嘉宾列表guest_list放到Paginator类中，划分每页显示2条数据
+    paginator = Paginator(guest_list, 10)     # 把查询出来的所有嘉宾列表guest_list放到Paginator类中，划分每页显示10条数据
     page = request.GET.get('page')           # 通过GET请求得到当前要现实第几页的数据
     try:
         contacts = paginator.page(page)      # 获取第page页的数据
